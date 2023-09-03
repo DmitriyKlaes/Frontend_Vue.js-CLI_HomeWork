@@ -1,121 +1,156 @@
 <template>
-  <div class="project-box">
-    <section class="content__tag-box">
-      <div class="content__tag" v-for="tag in this.tags" :key="tag.id">
-        <input
-          class="content__item checkbox-none"
-          type="radio"
-          :id="tag.id"
-          name="tag"
-          @change="activeTag(tag.id)" />
-        <label class="content__checkbox" :for="tag.id">{{ tag.text }}</label>
-      </div>
-    </section>
-    <input
-      @change="this.isFavorite = !this.isFavorite"
-      class="content__item checkbox-none"
-      id="only"
-      type="checkbox" />
-    <label class="content__checkbox favorite" for="only">Favorites ONLY</label>
-    <section class="articles-box">
-      <article
-        :class="item.tag"
-        v-for="item in favorites"
-        :key="item.id"
-        class="articles-box__item">
-        {{ item.tag }}
-        <img
-          @click="item.favorite = !item.favorite"
-          :src="
-            item.favorite
-              ? require('@/assets/img/favorite2.png')
-              : require('@/assets/img/favorite1.png')
-          "
-          alt="favorite"
-          class="articles-box__favorite" />
+  <main>
+    <section class="banner">
+      <article class="banner__head">
+        <h1 class="banner__title">Our Project</h1>
+        <p class="banner__text">Home / Project</p>
       </article>
     </section>
-  </div>
+    <div class="project-box">
+      <section class="project__tag-box">
+        <div class="project__tag" v-for="tag in this.tags" :key="tag.id">
+          <input
+            class="project__item checkbox-none"
+            type="radio"
+            :id="tag.id"
+            name="tag"
+            @change="activeTag(tag.id)" />
+          <label class="project__checkbox" :for="tag.id">{{ tag.text }}</label>
+        </div>
+      </section>
+      <input
+        @change="this.isFavorite = !this.isFavorite"
+        class="project__item checkbox-none"
+        id="only"
+        type="checkbox" />
+      <label class="project__checkbox favorite" for="only"
+        >Favorites ONLY</label
+      >
+      <section class="articles-box">
+        <article
+          v-for="item in favorites"
+          :key="item.id"
+          class="articles-box__item">
+          <img :src="item.src" alt="img" class="articles-box__img" />
+          <section class="articles-box__info">
+            <div class="articles-box__text-container">
+              <h3 class="articles-box__heading">{{ item.info }}</h3>
+              <p class="articles-box__text-item">Decor / Artchitecture</p>
+            </div>
+            <a href="#" class="articles-box__link">
+              <div class="articles-box__button">
+                <svg
+                  width="70"
+                  height="70"
+                  viewBox="0 0 70 70"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="35" cy="35" r="35" fill="#F4F0EC" />
+                  <path
+                    d="M32 44L40 35L32 26"
+                    stroke="#292F36"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+            </a>
+          </section>
+          <img
+            @click="item.favorite = !item.favorite"
+            :src="
+              item.favorite
+                ? require('@/assets/img/favorite2.png')
+                : require('@/assets/img/favorite1.png')
+            "
+            alt="favorite"
+            class="articles-box__favorite" />
+        </article>
+      </section>
+      <div class="project__pagination">
+        <img src="@/assets/img/pagination.png" alt="pagination" />
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
 export default {
-  name: "Project",
+  name: 'Project',
   data() {
     return {
       tags: [
         {
-          id: "kitchen",
-          text: "Kitchen",
+          id: 'kitchen',
+          text: 'Kitchen',
         },
         {
-          id: "bathroom",
-          text: "Bathroom",
+          id: 'bathroom',
+          text: 'Bathroom',
         },
         {
-          id: "bedroom",
-          text: "Bedroom",
+          id: 'bedroom',
+          text: 'Bedroom',
         },
         {
-          id: "livingroom",
-          text: "Living room",
+          id: 'livingroom',
+          text: 'Living room',
         },
       ],
       data: [
         {
-          id: "post11",
-          dataid: "kitchen",
+          dataid: 'kitchen',
           favorite: false,
-          tag: "kitchen",
-          text: "lorem123",
+          info: 'kitchen-1',
+          src: require('@/assets/img/кухня1.jpg'),
         },
         {
-          id: "post11",
-          dataid: "bathroom",
+          dataid: 'bathroom',
           favorite: false,
-          tag: "bathroom",
+          info: 'bathroom-1',
+          src: require('@/assets/img/ванная1.jpg'),
         },
         {
-          id: "post11",
-          dataid: "bedroom",
+          dataid: 'bedroom',
           favorite: false,
-          tag: "bedroom",
+          info: 'bedroom-1',
+          src: require('@/assets/img/спальня1.jpg'),
         },
         {
-          id: "post11",
-          dataid: "livingroom",
+          dataid: 'livingroom',
           favorite: false,
-          tag: "livingroom",
+          info: 'livingroom-1',
+          src: require('@/assets/img/комната1.jpg'),
         },
         {
-          id: "post11",
-          dataid: "kitchen",
+          dataid: 'kitchen',
           favorite: false,
-          tag: "kitchen",
+          info: 'kitchen-2',
+          src: require('@/assets/img/кухня2.jpg'),
         },
         {
-          id: "post11",
-          dataid: "bathroom",
+          dataid: 'bathroom',
           favorite: false,
-          tag: "bathroom",
+          info: 'bathroom-2',
+          src: require('@/assets/img/ванная2.jpg'),
         },
         {
-          id: "post11",
-          dataid: "bedroom",
+          dataid: 'bedroom',
           favorite: false,
-          tag: "bedroom",
+          info: 'bedroom-2',
+          src: require('@/assets/img/спальня2.jpg'),
         },
         {
-          id: "post11",
-          dataid: "livingroom",
+          dataid: 'livingroom',
           favorite: false,
-          tag: "livingroom",
+          info: 'livingroom-2',
+          src: require('@/assets/img/комната2.jpg'),
         },
         {
-          id: "post11",
-          dataid: "kitchen",
+          dataid: 'kitchen',
           favorite: false,
-          tag: "kitchen",
+          info: 'kitchen-3',
+          src: require('@/assets/img/кухня3.jpg'),
         },
       ],
       isFavorite: false,
@@ -141,24 +176,70 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.project-box {
-  width: 800px;
-  margin: 0 auto;
+@import '@/assets/styles/_mixins.scss';
+@import '@/assets/styles/_vars.scss';
+
+%secondaryTextstyle {
+  color: $secondTextColor;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
 }
-.content__tag-box {
-  margin-top: 40px;
+
+.banner {
+  background-image: url('@/assets/img/project-banner.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
-  justify-content: center;
+  align-items: flex-end;
+  height: 356px;
+  max-width: 1920px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 200px;
+
+  &__head {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    background: #fff;
+    padding: 41px 78px;
+    border-radius: 37px 37px 0px 0px;
+  }
+
+  &__title {
+    @include fontStyle(50px, $textColor);
+  }
+
+  &__text {
+    font-family: $smallTextFont;
+    @extend %secondaryTextstyle;
+  }
+}
+
+.project-box {
+  max-width: $siteWidth;
+  margin: 0 auto 200px;
+}
+.project__tag-box {
+  max-width: 880px;
+  min-height: 75px;
+  margin: 0 auto;
+  display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  border: 1px solid #cda274;
+  border-radius: 18px;
+}
+.project__tag {
+  width: 220px;
 }
 .content__tag {
-  margin-bottom: 25px;
 }
-.content__item {
+.project__item {
   margin-top: 10px;
   &:checked + label {
-    background-color: #292f36;
+    background-color: #cda274;
     color: #fff;
   }
 }
@@ -167,47 +248,74 @@ export default {
   left: -9999999px;
   display: none;
 }
-.content__checkbox {
-  border-radius: 10px;
-  background: #f4f0ec;
-  padding: 10px 30px;
+.project__checkbox {
+  width: 100%;
+  border-radius: 18px;
+  padding: 26px 30px;
+  display: inline-block;
+  box-sizing: border-box;
+  color: $textColor;
   text-align: center;
+  font-family: $smallTextFont;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%;
   letter-spacing: 0.36px;
 }
 .articles-box {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
   &__item {
-    width: 390px;
-    height: 100px;
+    width: 590px;
     font-size: 30px;
-    border: 1px solid black;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    gap: 15px;
+  }
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__img {
+    width: 100%;
+  }
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__heading {
+    @include fontStyle(25px, $textColor);
+    letter-spacing: 0.5px;
+  }
+  &__text-item {
+    font-family: $smallTextFont;
+    @extend %secondaryTextstyle;
+    letter-spacing: 0.22px;
   }
   &__favorite {
     width: 30px;
     height: 30px;
+    position: absolute;
+    right: 0;
   }
 }
 .favorite {
+  height: 75px;
   display: block;
-  padding-bottom: 15px;
-  padding-top: 10px;
-  width: 300px;
-  margin: 0 auto;
+  width: 220px;
+  margin: 5px auto 0;
+  margin-bottom: 60px;
+  border: 1px solid #cda274;
+  border-radius: 18px;
 }
-.kitchen {
-  background-color: #955f5f;
-}
-.bathroom {
-  background-color: #689166;
-}
-.bedroom {
-  background-color: #d0e25a;
-}
-.livingroom {
-  background-color: #537c99;
+.project__pagination {
+  margin: 60px auto 200px;
+  display: flex;
+  justify-content: center;
 }
 </style>

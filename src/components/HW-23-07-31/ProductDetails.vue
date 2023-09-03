@@ -1,6 +1,9 @@
 <template>
   <div class="product-box">
-    <Product :product="product" v-for="product in this.products" :key="product.id" />
+    <Product
+      :product="product"
+      v-for="product in this.products"
+      :key="product.id" />
     <section class="prodict"></section>
   </div>
 </template>
