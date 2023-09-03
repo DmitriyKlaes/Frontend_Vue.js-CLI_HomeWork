@@ -11,6 +11,15 @@
     line-height: 150%;
 }
 
+.swiper-pagination-bullet {
+    border: 3px solid black;
+    width: var(--swiper-pagination-bullet-width,
+            var(--swiper-pagination-bullet-size, 10px));
+    height: var(--swiper-pagination-bullet-height,
+            var(--swiper-pagination-bullet-size, 10px));
+    background: var(--swiper-pagination-bullet-inactive-color, #fff);
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -18,7 +27,7 @@
 
 body {
     font-family: "DM Serif Display", "Jost", serif;
-    padding-bottom: 134px;
+    padding-bottom: 150px;
 }
 
 a {
