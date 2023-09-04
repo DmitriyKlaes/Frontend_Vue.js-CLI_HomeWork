@@ -37,7 +37,7 @@
               <h3 class="articles-box__heading">{{ item.info }}</h3>
               <p class="articles-box__text-item">Decor / Artchitecture</p>
             </div>
-            <a href="#" class="articles-box__link">
+            <router-link to="/projectdetails" class="articles-box__link">
               <div class="articles-box__button">
                 <svg
                   width="70"
@@ -54,7 +54,7 @@
                     stroke-linejoin="round" />
                 </svg>
               </div>
-            </a>
+            </router-link>
           </section>
           <img
             @click="item.favorite = !item.favorite"
@@ -234,8 +234,7 @@ export default {
 .project__tag {
   width: 220px;
 }
-.content__tag {
-}
+
 .project__item {
   margin-top: 10px;
   &:checked + label {

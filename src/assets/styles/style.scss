@@ -34,42 +34,6 @@ a {
     text-decoration: none;
 }
 
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 50px;
-    max-width: $siteWidth;
-    margin: 0 auto;
-
-    &__name {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    &__logo {
-        height: 34px;
-        width: 34px;
-    }
-
-    &__head {
-        @include fontStyle(40px, $textColor);
-    }
-
-    &__nav {
-        display: flex;
-        justify-content: space-between;
-        width: 240px;
-    }
-
-    &__link {
-        font-family: $smallTextFont;
-        text-align: center;
-        @include fontStyle(20px, $textColor);
-    }
-}
-
 .promo {
     background-image: url("@/assets/img/promo.png");
     background-repeat: no-repeat;
@@ -93,28 +57,6 @@ a {
         font-family: $smallTextFont;
         letter-spacing: 0.22px;
         @extend %secondaryTextstyle;
-    }
-
-    &__link {
-        display: block;
-        border-radius: 18px;
-        margin-top: 21px;
-        max-width: 220px;
-        height: 75px;
-        overflow: hidden;
-        box-shadow: 0px 10px 20px 0px rgba(192, 192, 192, 0.35);
-        background: $textColor;
-    }
-
-    &__button {
-        height: 100%;
-        gap: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @include fontStyle(18px, #fff);
-        font-family: $smallTextFont;
-        letter-spacing: 0.36px;
     }
 }
 
@@ -311,82 +253,5 @@ a {
         border-radius: 50%;
         max-width: 52px;
         max-height: 52px;
-    }
-}
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-    max-width: $siteWidth;
-    margin: 0 auto;
-    height: 275px;
-
-    &__left {
-        max-height: 190px;
-    }
-
-    &__name {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 18px;
-    }
-
-    &__logo {
-        height: 34px;
-        width: 34px;
-    }
-
-    &__head {
-        @include fontStyle(40px, $textColor);
-    }
-
-    &__text {
-        font-family: $smallTextFont;
-        @extend %secondaryTextstyle;
-        letter-spacing: 0.22px;
-        max-width: 390px;
-    }
-
-    &__social {
-        margin-top: 30px;
-        max-width: 90px;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    &__nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        max-height: 220px;
-        margin-right: 250px;
-
-        &-heading {
-            @include fontStyle(25px, $textColor);
-        }
-    }
-
-    &__link {
-        font-family: $smallTextFont;
-        @include fontStyle(22px, $textColor);
-    }
-
-    &__contacts {
-        max-height: 250px;
-        max-width: 260px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    &__heading {
-        @include fontStyle(25px, $textColor);
-    }
-
-    &__info {
-        font-family: $smallTextFont;
-        @include fontStyle(22px, $secondTextColor);
-        letter-spacing: 0.22px;
     }
 }
